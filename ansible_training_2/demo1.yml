@@ -1,0 +1,21 @@
+---
+
+- name: demo playbook
+  hosts: test1
+  become: true
+
+  tasks:
+  - name: nettools uninstallation
+    apt: 
+      name: net-tools
+      state: present	
+  
+  - name: install ncdu
+    apt:
+      name: ncdu
+      state: present
+
+  - name: install curl
+    apt:
+      name: curl
+      state: present 

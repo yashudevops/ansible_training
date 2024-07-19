@@ -1,0 +1,11 @@
+---
+
+- name: demo playbook
+  hosts: local
+  become: true
+
+  tasks:
+  - name: nettools installation
+    apt: 
+      name: 
+      state: present

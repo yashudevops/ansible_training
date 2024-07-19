@@ -1,0 +1,17 @@
+---
+
+- name: Demo playbook
+  hosts: test1
+  become: true
+
+  tasks:
+  - name: install update
+    yum:
+      update_cache: yes
+   M-AAAAAAAAAAAAAAAAAAbution == "CentOS"	
+
+  - name: install httpd
+    yum: 
+      name: httpd
+      state: present
+

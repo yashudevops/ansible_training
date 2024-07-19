@@ -1,0 +1,14 @@
+--
+
+-  name: Demo playbok
+  hosts: all
+  become: yes
+
+  tasks:
+  - name: install apache2 and curl
+    apt:
+      name:
+        - apache2
+        - curl
+      state: latest
+

@@ -1,0 +1,14 @@
+---
+- name: installation app in one row
+  hosts: test1
+  become: true
+
+  tasks:
+- name: installation in a row
+  apt: 
+    name: 
+      - net-tools 
+      - ncdu 
+      - curl
+    state: absent
+

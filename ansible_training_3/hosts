@@ -1,0 +1,10 @@
+[local]
+localhost
+
+[test1]
+192.168.1.23 apache_package=apache2 curl_package=curl
+
+[test2]
+192.168.1.11 apache_package=httpd curl_package=curl
+
+

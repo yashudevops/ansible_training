@@ -1,0 +1,28 @@
+---
+
+- name: demo user add
+  hosts: all
+  become: yes
+
+  tasks:
+
+  - name: create user
+    tags: always
+    user:
+      name: kunnu
+      group: root
+
+  - name: add ssh key for kunnu
+    tags: always
+    authorized_key:
+      user: kunnu
+      key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCy5MHrnf0MeMe+eVGnd8v0g1p8WYZnQy0xuI6xcJFGFQG0CfhoP7IFXs9BH3jhtVR/AwQjc2f3YE0rDEWPSfvyF9VC9v7K3bxpS6DRtWO4W+Yl5hos+ImEs6EuEk+wCeS5Higt97J+HlySM6iNjGx5aJQOOYEY+otSL1eaa+9oPpuGStRZbn1CVJtx10hGwi8JuTQ6g6JjxVb4YEgxWYaYBml1GuL97gnoFB/NGWovYb6bFOL5TcW1ezkSC8LImMjndzgVsI7kfSJajruPeQvxwEPKGKKJXEP/yvigPTgA0Kh5I6QyUcHg58ARqS7NZe4J8p6kw1bVvhFmpJysPxyGHhDnGyMqJ0yO0wV46YRFuOkz4/u9hm04fnDmdRI6tbE/6aU0cpvLUmYivIzsOJSQyJE04yMlombJtehKWyi/1gbanY4j2eqLXk6Tx/tn6CgVAJuJWKqtmuLs+fM36N0xrWHzu2ghVHgcYt+kSG2HdZCB9rPrv/HkltLw00HulcE= admin1@jenkinsserver"
+  
+  - name: add sudors file for kunnu user
+    tags: always
+    copy:
+      src: sudoers_kunnu
+      dest: /etc/sudoers.d/kunnu
+      owner: root
+      group: root
+      mode: 0440

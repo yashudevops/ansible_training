@@ -1,0 +1,15 @@
+---
+
+- name: Demo playbok
+  hosts: test1
+  become: yes
+
+  tasks:
+  - name: install apache and curl
+    package:
+      name:
+        - "{{apache_package}}"
+        - "{{curl_package}}"
+      state: present
+      update_cache: yes	
+ 
